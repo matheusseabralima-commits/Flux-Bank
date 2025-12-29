@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dashboard de Performance de Vendas</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#111722", // Matching the provided component bg
+                        "card-dark": "#1a2332", // Slightly lighter for cards
+                        "border-dark": "#232f48",
+                        "text-secondary": "#92a4c9",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for dark theme */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111722; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #232f48; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #324467; 
+        }
+        
+        .gauge-bg {
+            stroke: #232f48;
+        }
+        .gauge-fill {
+            stroke: #135bec;
+            transition: stroke-dashoffset 1s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-[#111722] text-white font-display overflow-hidden selection:bg-primary selection:text-white">
+<div class="flex h-screen w-full overflow-hidden">
+<!-- Sidebar -->
+<div class="hidden lg:flex w-[280px] flex-col border-r border-[#232f48] bg-[#111722] p-4 shrink-0">
+<div class="flex flex-col gap-4 h-full">
+<!-- User Profile / Brand Area -->
+<div class="flex gap-3 items-center px-2 py-2">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-12 border-2 border-[#232f48]" data-alt="Profile picture of the admin user" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDVsFuWXNesHCs9FvzfQkc5YmyaRNhIeB0u_AZjTrd01G72xID--jviUTSzjRFl-I2RVFR4hVxIvJmlRf5WDCZHmnvdSkzHZMu_fNmnVLc4vf_sHq8Yq_pPcWNZG26gnUrlfwqfgPXHYiSjd1Ouvq7hMUEyB4lluAAlDZqEHPasBDAyQi4Tg_X-rI0yAPod2HJnemxWaYi5fzPoan6Mz4Fe-hLGczdcIexSBw5DSs6JwMDVM7N0WIVq1Fro73fQCF_lbc_hwO_MPV0");'></div>
+<div class="flex flex-col">
+<h1 class="text-white text-base font-bold leading-normal">Gestão de Vendas</h1>
+<p class="text-[#92a4c9] text-xs font-normal leading-normal">Administrador</p>
+</div>
+</div>
+<!-- Navigation -->
+<div class="flex flex-col gap-2 mt-4">
+<div class="flex items-center gap-3 px-3 py-3 rounded-lg bg-primary text-white cursor-pointer shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined fill-1">dashboard</span>
+<p class="text-sm font-semibold leading-normal">Dashboard</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-3 rounded-lg text-[#92a4c9] hover:bg-[#232f48] hover:text-white transition-colors cursor-pointer">
+<span class="material-symbols-outlined">group</span>
+<p class="text-sm font-medium leading-normal">Correspondentes</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-3 rounded-lg text-[#92a4c9] hover:bg-[#232f48] hover:text-white transition-colors cursor-pointer">
+<span class="material-symbols-outlined">description</span>
+<p class="text-sm font-medium leading-normal">Relatórios</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-3 rounded-lg text-[#92a4c9] hover:bg-[#232f48] hover:text-white transition-colors cursor-pointer">
+<span class="material-symbols-outlined">payments</span>
+<p class="text-sm font-medium leading-normal">Comissões</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-3 rounded-lg text-[#92a4c9] hover:bg-[#232f48] hover:text-white transition-colors cursor-pointer">
+<span class="material-symbols-outlined">settings</span>
+<p class="text-sm font-medium leading-normal">Configurações</p>
+</div>
+</div>
+<!-- Bottom Action -->
+<div class="mt-auto">
+<div class="flex items-center gap-3 px-3 py-3 rounded-lg text-[#92a4c9] hover:text-red-400 cursor-pointer transition-colors">
+<span class="material-symbols-outlined">logout</span>
+<p class="text-sm font-medium leading-normal">Sair</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Content Area -->
+<div class="flex flex-col flex-1 min-w-0 bg-[#111722] overflow-hidden relative">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#232f48] px-6 py-4 shrink-0 bg-[#111722]/95 backdrop-blur-sm z-20">
+<div class="flex items-center gap-8">
+<!-- Mobile Menu Trigger -->
+<button class="lg:hidden text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="flex items-center gap-4 text-white">
+<div class="size-8 flex items-center justify-center bg-primary rounded-lg text-white">
+<span class="material-symbols-outlined text-[20px]">trending_up</span>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] hidden sm:block">Performance de Vendas</h2>
+</div>
+<!-- Search -->
+<label class="hidden md:flex flex-col min-w-40 !h-10 w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full bg-[#232f48] focus-within:ring-1 focus-within:ring-primary transition-all">
+<div class="text-[#92a4c9] flex border-none items-center justify-center pl-4 rounded-l-lg">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 bg-transparent h-full placeholder:text-[#92a4c9] px-4 text-sm font-normal leading-normal" placeholder="Buscar corban, região..." value=""/>
+</div>
+</label>
+</div>
+<div class="flex items-center justify-end gap-4 sm:gap-6">
+<div class="flex gap-2">
+<button class="flex items-center justify-center rounded-lg size-10 bg-[#232f48] hover:bg-[#324467] text-white transition-colors relative">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-red-500 rounded-full border-2 border-[#232f48]"></span>
+</button>
+<button class="hidden sm:flex items-center justify-center rounded-lg size-10 bg-[#232f48] hover:bg-[#324467] text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Scrollable Content -->
+<main class="flex-1 overflow-y-auto p-4 md:p-8 scroll-smooth">
+<div class="max-w-[1400px] mx-auto flex flex-col gap-8">
+<!-- Page Heading & Filters -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+<div class="flex flex-col gap-2">
+<h1 class="text-white text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em]">Visão Geral</h1>
+<p class="text-[#92a4c9] text-sm md:text-base font-normal">Acompanhamento em tempo real de metas e projeções.</p>
+</div>
+<!-- Chips -->
+<div class="flex gap-2 flex-wrap">
+<button class="px-4 py-2 rounded-lg bg-primary text-white text-sm font-medium hover:bg-blue-600 transition-colors shadow-lg shadow-blue-900/20">Este Mês</button>
+<button class="px-4 py-2 rounded-lg bg-[#232f48] text-[#92a4c9] hover:text-white hover:bg-[#324467] text-sm font-medium transition-colors">Trimestre</button>
+<button class="px-4 py-2 rounded-lg bg-[#232f48] text-[#92a4c9] hover:text-white hover:bg-[#324467] text-sm font-medium transition-colors">Ano</button>
+<button class="px-4 py-2 rounded-lg bg-[#232f48] text-[#92a4c9] hover:text-white hover:bg-[#324467] text-sm font-medium transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span> Personalizado
+                            </button>
+</div>
+</div>
+<!-- Stats KPI -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="flex flex-col gap-2 rounded-xl p-5 border border-[#232f48] bg-[#1a2332] relative group hover:border-primary/50 transition-colors">
+<div class="flex justify-between items-start">
+<p class="text-[#92a4c9] text-sm font-medium">Volume Total</p>
+<div class="p-1.5 rounded bg-green-500/10 text-green-500">
+<span class="material-symbols-outlined text-[20px]">trending_up</span>
+</div>
+</div>
+<p class="text-white text-2xl font-bold">R$ 12.4M</p>
+<p class="text-green-500 text-sm font-medium flex items-center gap-1">
+                                +12% <span class="text-[#92a4c9] font-normal">vs mês anterior</span>
+</p>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-5 border border-[#232f48] bg-[#1a2332] relative group hover:border-primary/50 transition-colors">
+<div class="flex justify-between items-start">
+<p class="text-[#92a4c9] text-sm font-medium">Comissão Projetada</p>
+<div class="p-1.5 rounded bg-blue-500/10 text-blue-500">
+<span class="material-symbols-outlined text-[20px]">attach_money</span>
+</div>
+</div>
+<p class="text-white text-2xl font-bold">R$ 840k</p>
+<p class="text-green-500 text-sm font-medium flex items-center gap-1">
+                                +5% <span class="text-[#92a4c9] font-normal">sobre a meta</span>
+</p>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-5 border border-[#232f48] bg-[#1a2332] relative group hover:border-primary/50 transition-colors">
+<div class="flex justify-between items-start">
+<p class="text-[#92a4c9] text-sm font-medium">Corbans Ativos</p>
+<div class="p-1.5 rounded bg-purple-500/10 text-purple-500">
+<span class="material-symbols-outlined text-[20px]">groups</span>
+</div>
+</div>
+<p class="text-white text-2xl font-bold">142</p>
+<p class="text-[#92a4c9] text-sm font-medium flex items-center gap-1">
+                                3 novos esta semana
+                            </p>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-5 border border-[#232f48] bg-[#1a2332] relative group hover:border-primary/50 transition-colors">
+<div class="flex justify-between items-start">
+<p class="text-[#92a4c9] text-sm font-medium">Ticket Médio</p>
+<div class="p-1.5 rounded bg-orange-500/10 text-orange-500">
+<span class="material-symbols-outlined text-[20px]">receipt_long</span>
+</div>
+</div>
+<p class="text-white text-2xl font-bold">R$ 4.2k</p>
+<p class="text-red-400 text-sm font-medium flex items-center gap-1">
+                                -2% <span class="text-[#92a4c9] font-normal">vs mês anterior</span>
+</p>
+</div>
+</div>
+<!-- Charts Section -->
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-6">
+<!-- Gauge Chart -->
+<div class="flex flex-col rounded-xl border border-[#232f48] bg-[#1a2332] p-6 items-center justify-center relative min-h-[300px]">
+<h3 class="absolute top-6 left-6 text-white font-bold text-lg">Atingimento da Meta</h3>
+<button class="absolute top-6 right-6 text-[#92a4c9] hover:text-white">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+<div class="relative size-64 mt-8">
+<svg class="size-full -rotate-90 transform" viewbox="0 0 100 100">
+<!-- Background Circle -->
+<circle cx="50" cy="50" fill="transparent" r="40" stroke="#232f48" stroke-width="8"></circle>
+<!-- Progress Circle (78%) -->
+<circle cx="50" cy="50" fill="transparent" r="40" stroke="#135bec" stroke-dasharray="251.2" stroke-dashoffset="55" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-4xl font-bold text-white">78%</span>
+<span class="text-sm text-[#92a4c9]">da meta mensal</span>
+</div>
+</div>
+<div class="flex w-full justify-between px-8 mt-[-20px]">
+<div class="text-center">
+<p class="text-[#92a4c9] text-xs">Atual</p>
+<p class="text-white font-bold">R$ 12.4M</p>
+</div>
+<div class="text-center">
+<p class="text-[#92a4c9] text-xs">Meta</p>
+<p class="text-white font-bold">R$ 15.9M</p>
+</div>
+</div>
+</div>
+<!-- Line Chart Projection -->
+<div class="flex flex-col rounded-xl border border-[#232f48] bg-[#1a2332] p-6 col-span-1 xl:col-span-2 min-h-[300px]">
+<div class="flex justify-between items-center mb-6">
+<div>
+<h3 class="text-white font-bold text-lg">Evolução Diária &amp; Projeção</h3>
+<p class="text-[#92a4c9] text-sm">Produção real vs Estimativa de fechamento</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="flex items-center gap-1 text-xs text-[#92a4c9]"><span class="size-2 rounded-full bg-primary"></span>Realizado</span>
+<span class="flex items-center gap-1 text-xs text-[#92a4c9]"><span class="size-2 rounded-full border border-dashed border-[#0bda5e] bg-transparent"></span>Projeção</span>
+</div>
+</div>
+<!-- Simulated Chart Area -->
+<div class="flex-1 w-full relative flex items-end gap-1 pb-6 px-2 border-b border-[#232f48]">
+<!-- Y Axis Labels (Absolute) -->
+<div class="absolute left-0 top-0 bottom-6 flex flex-col justify-between text-xs text-[#92a4c9] pointer-events-none opacity-50">
+<span>20M</span>
+<span>15M</span>
+<span>10M</span>
+<span>5M</span>
+<span>0</span>
+</div>
+<!-- Chart SVG -->
+<svg class="w-full h-full overflow-visible ml-8" preserveaspectratio="none" viewbox="0 0 800 200">
+<!-- Grid Lines -->
+<line stroke="#232f48" stroke-dasharray="4" x1="0" x2="800" y1="0" y2="0"></line>
+<line stroke="#232f48" stroke-dasharray="4" x1="0" x2="800" y1="50" y2="50"></line>
+<line stroke="#232f48" stroke-dasharray="4" x1="0" x2="800" y1="100" y2="100"></line>
+<line stroke="#232f48" stroke-dasharray="4" x1="0" x2="800" y1="150" y2="150"></line>
+<!-- Area Fill Gradient -->
+<defs>
+<lineargradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#135bec" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="#135bec" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<!-- Actual Data Line (Solid) -->
+<path d="M0,180 L50,160 L100,165 L150,140 L200,130 L250,110 L300,115 L350,90 L400,85 L450,70" fill="none" stroke="#135bec" stroke-linecap="round" stroke-width="3"></path>
+<!-- Projection Data Line (Dashed) -->
+<path d="M450,70 L500,60 L550,55 L600,45 L650,40 L700,30 L750,25 L800,20" fill="none" stroke="#0bda5e" stroke-dasharray="6 4" stroke-linecap="round" stroke-width="3"></path>
+<!-- Area Under Curve (Simplified for solid part) -->
+<path d="M0,180 L50,160 L100,165 L150,140 L200,130 L250,110 L300,115 L350,90 L400,85 L450,70 V200 H0 Z" fill="url(#chartGradient)" stroke="none"></path>
+<!-- Current Point Marker -->
+<circle cx="450" cy="70" fill="#fff" r="5" stroke="#135bec" stroke-width="2"></circle>
+<!-- Tooltip simulation -->
+<g transform="translate(430, 30)">
+<rect fill="#1a2332" height="30" rx="4" stroke="#232f48" width="90"></rect>
+<text fill="white" font-size="12" font-weight="bold" text-anchor="middle" x="45" y="20">Hoje: R$12.4M</text>
+</g>
+</svg>
+</div>
+<!-- X Axis Days -->
+<div class="flex justify-between w-full pl-8 text-xs text-[#92a4c9] mt-2">
+<span>Dia 1</span>
+<span>Dia 5</span>
+<span>Dia 10</span>
+<span>Dia 15</span>
+<span>Dia 20</span>
+<span>Dia 25</span>
+<span>Dia 30</span>
+</div>
+</div>
+</div>
+<!-- Bottom Section: Ranking & Alerts -->
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-6 pb-8">
+<!-- Ranking Table -->
+<div class="flex flex-col rounded-xl border border-[#232f48] bg-[#1a2332] col-span-1 xl:col-span-2 overflow-hidden">
+<div class="p-6 border-b border-[#232f48] flex justify-between items-center">
+<h3 class="text-white font-bold text-lg">Ranking de Correspondentes</h3>
+<button class="text-sm text-primary hover:text-blue-400 font-medium">Ver todos</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-[#232f48]/50 text-[#92a4c9] text-xs uppercase tracking-wider">
+<th class="p-4 font-medium">Rank</th>
+<th class="p-4 font-medium">Corban</th>
+<th class="p-4 font-medium">Regional</th>
+<th class="p-4 font-medium text-right">Volume</th>
+<th class="p-4 font-medium text-right">% Meta</th>
+<th class="p-4 font-medium text-center">Status</th>
+</tr>
+</thead>
+<tbody class="text-sm divide-y divide-[#232f48]">
+<tr class="group hover:bg-[#232f48]/30 transition-colors">
+<td class="p-4">
+<div class="size-6 bg-[#FFD700]/20 text-[#FFD700] rounded flex items-center justify-center font-bold text-xs">1</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-cover bg-center" data-alt="Portrait of Ana Silva" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBNiUmj-U5R3zVXcOAaImOuSSZhpuRlKDUPsbPn_wecefx6WhnyEYSsmI0z5jOHYhPbDBs0MxzgHON-EHJSgBRAO2hb-GUXUI1fWfTTdr5H9j_8lxS_2Ukcpj85Kw74t4Kdit-WH7QnGyOiuaL41Vl6lY_WL4z_Mc10MIAGhLZNhAOEoZpRjzdt93u6GsRi4J0c2AxRlum5yg_9Ra_VMmm3RD_Ri9KTGqHu67eIWnt6q2izJs6BMB2jh45qwf-u2BkcNf-55zX6T0w");'></div>
+<span class="text-white font-medium">Ana Silva</span>
+</div>
+</td>
+<td class="p-4 text-[#92a4c9]">Sudeste</td>
+<td class="p-4 text-white font-bold text-right">R$ 2.4M</td>
+<td class="p-4 text-right">
+<span class="text-green-500 font-bold">112%</span>
+</td>
+<td class="p-4 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded bg-green-500/10 text-green-500 text-xs font-medium">
+<span class="size-1.5 rounded-full bg-green-500"></span> Estável
+                                                </span>
+</td>
+</tr>
+<tr class="group hover:bg-[#232f48]/30 transition-colors">
+<td class="p-4">
+<div class="size-6 bg-[#C0C0C0]/20 text-[#C0C0C0] rounded flex items-center justify-center font-bold text-xs">2</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-cover bg-center" data-alt="Portrait of Carlos Souza" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDnHAwDUltdKQkugE7zG1ie_K12I-gTRSsuqqWVcKxPz0x1ZXK7MXSsrXQN1Lq11ekofmuNOrX_XUXs2OBUoYW_8C4LLewfqo7OS2_Dn6lhAnCQNm-_4iohjdBMo8h2S4eyXVisbilX6o4KKpzt9jUcD9Diiu804HjcLCXZOeyaQOd1QODGBedo97lCJFA3wGj3EZMwrzvNda2Zbm6k9774-L5ouZ7OK09tPss7kVqMFz0akihVZpziVNHgtyoI2Nom1OzTdf5EF1k");'></div>
+<span class="text-white font-medium">Carlos Souza</span>
+</div>
+</td>
+<td class="p-4 text-[#92a4c9]">Sul</td>
+<td class="p-4 text-white font-bold text-right">R$ 1.9M</td>
+<td class="p-4 text-right">
+<span class="text-green-500 font-bold">105%</span>
+</td>
+<td class="p-4 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded bg-green-500/10 text-green-500 text-xs font-medium">
+<span class="size-1.5 rounded-full bg-green-500"></span> Estável
+                                                </span>
+</td>
+</tr>
+<tr class="group hover:bg-[#232f48]/30 transition-colors">
+<td class="p-4">
+<div class="size-6 bg-[#CD7F32]/20 text-[#CD7F32] rounded flex items-center justify-center font-bold text-xs">3</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-cover bg-center" data-alt="Portrait of Roberto Lima" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCUgraSl41r9A-k2Uy5EkMaB7KipCvRQ9CdJ9gH-ORvoHKqyDCRI2xsVeOzXVqPOultFUA1ducnAnlKK5KbWmGGwKjdF0RCczMsmzbI8LQcWMzoPS_BthX8iub0zXqiV2nys87O4Jv6IhEPJMDLTaKR27_BMBgrqGXSFdK0c3HREsglxxNs_9qWOClXgaHdI5gnivP5KbbZcONgPmhZsrUWt7G1_MyjXLCqcw0-Vcbwjk7WKPka1vmbyALHr2XEkt2nF5NDit4FltY");'></div>
+<span class="text-white font-medium">Roberto Lima</span>
+</div>
+</td>
+<td class="p-4 text-[#92a4c9]">Nordeste</td>
+<td class="p-4 text-white font-bold text-right">R$ 1.7M</td>
+<td class="p-4 text-right">
+<span class="text-white font-bold">98%</span>
+</td>
+<td class="p-4 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded bg-blue-500/10 text-blue-500 text-xs font-medium">
+<span class="size-1.5 rounded-full bg-blue-500"></span> Subindo
+                                                </span>
+</td>
+</tr>
+<tr class="group hover:bg-[#232f48]/30 transition-colors">
+<td class="p-4">
+<div class="size-6 bg-[#232f48] text-[#92a4c9] rounded flex items-center justify-center font-bold text-xs">4</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-cover bg-center" data-alt="Portrait of Julia Mendes" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCYnG_COdzWLeUz5TJoQUE6VZFXbhrEyO3em9LjNoDvZMjq23h9PQ2DnnRRfrC7SiM3piiHobkyVQ_X_aziqs4GuYpCnrY2oZX7vF6_1N0-TamvyjCMfgtLJYHrdvOd97HOd7e_tZPsbjykgYjNQLO-qMcRSe2lmTUEeW7IpALTmTi9PQZcF-g1i06fWfVtHkOyfqWj-679HT55gvUr1XphmvIcdN5D-ntUDiNfRQp07DuCAl5a2yHhvHlqkw3a0hsszg5sYCoI7yI");'></div>
+<span class="text-white font-medium">Julia Mendes</span>
+</div>
+</td>
+<td class="p-4 text-[#92a4c9]">Sudeste</td>
+<td class="p-4 text-white font-bold text-right">R$ 1.5M</td>
+<td class="p-4 text-right">
+<span class="text-yellow-500 font-bold">85%</span>
+</td>
+<td class="p-4 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded bg-yellow-500/10 text-yellow-500 text-xs font-medium">
+<span class="size-1.5 rounded-full bg-yellow-500"></span> Atenção
+                                                </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Alerts / At Risk Section -->
+<div class="flex flex-col rounded-xl border border-[#232f48] bg-[#1a2332] h-full">
+<div class="p-6 border-b border-[#232f48]">
+<h3 class="text-white font-bold text-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-orange-500">warning</span>
+                                    Alertas de Risco
+                                </h3>
+<p class="text-[#92a4c9] text-sm mt-1">Correspondentes com baixa performance.</p>
+</div>
+<div class="flex flex-col p-4 gap-3 overflow-y-auto">
+<div class="p-4 rounded-lg bg-[#232f48]/40 border border-[#232f48] flex gap-3 items-start">
+<div class="min-w-10 min-h-10 rounded-full bg-red-500/10 flex items-center justify-center text-red-500">
+<span class="material-symbols-outlined">trending_down</span>
+</div>
+<div class="flex flex-col gap-1 w-full">
+<div class="flex justify-between items-center w-full">
+<p class="text-white font-semibold text-sm">João Pereira</p>
+<span class="text-xs text-red-400 font-medium">-40% da meta</span>
+</div>
+<p class="text-[#92a4c9] text-xs">Região Norte • Volume muito baixo para o período.</p>
+<button class="mt-2 text-xs text-primary font-medium hover:underline self-start">Ver detalhes</button>
+</div>
+</div>
+<div class="p-4 rounded-lg bg-[#232f48]/40 border border-[#232f48] flex gap-3 items-start">
+<div class="min-w-10 min-h-10 rounded-full bg-orange-500/10 flex items-center justify-center text-orange-500">
+<span class="material-symbols-outlined">person_off</span>
+</div>
+<div class="flex flex-col gap-1 w-full">
+<div class="flex justify-between items-center w-full">
+<p class="text-white font-semibold text-sm">Mariana Costa</p>
+<span class="text-xs text-orange-400 font-medium">Inativo 5 dias</span>
+</div>
+<p class="text-[#92a4c9] text-xs">Sem novas propostas cadastradas esta semana.</p>
+<button class="mt-2 text-xs text-primary font-medium hover:underline self-start">Enviar mensagem</button>
+</div>
+</div>
+<div class="p-4 rounded-lg bg-[#232f48]/40 border border-[#232f48] flex gap-3 items-start">
+<div class="min-w-10 min-h-10 rounded-full bg-yellow-500/10 flex items-center justify-center text-yellow-500">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div class="flex flex-col gap-1 w-full">
+<div class="flex justify-between items-center w-full">
+<p class="text-white font-semibold text-sm">Pedro Alves</p>
+<span class="text-xs text-yellow-400 font-medium">Queda no Ticket</span>
+</div>
+<p class="text-[#92a4c9] text-xs">Ticket médio caiu 15% comparado ao mês anterior.</p>
+</div>
+</div>
+</div>
+<div class="p-4 mt-auto border-t border-[#232f48]">
+<button class="w-full py-2.5 rounded-lg border border-[#232f48] text-[#92a4c9] text-sm font-medium hover:bg-[#232f48] hover:text-white transition-colors">
+                                    Ver todos os alertas
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

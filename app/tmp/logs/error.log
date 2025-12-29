@@ -1,0 +1,616 @@
+2025-12-24 13:50:05 Error: [MissingControllerException] Controller class PagesController could not be found.
+Exception Attributes: array (
+  'class' => 'PagesController',
+  'plugin' => NULL,
+)
+Request URL: /
+Stack Trace:
+#0 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2025-12-24 13:50:05 Error: Fatal Error (1): Uncaught Error: Class 'AppHelper' not found in /var/www/html/lib/Cake/View/Helper/HtmlHelper.php:33
+Stack trace:
+#0 /var/www/html/lib/Cake/Core/App.php(567): include()
+#1 [internal function]: App::load('HtmlHelper')
+#2 [internal function]: spl_autoload_call('HtmlHelper')
+#3 /var/www/html/lib/Cake/View/HelperCollection.php(130): class_exists('HtmlHelper')
+#4 /var/www/html/lib/Cake/View/HelperCollection.php(63): HelperCollection->load('Html')
+#5 /var/www/html/lib/Cake/View/View.php(858): HelperCollection->__isset('Html')
+#6 /var/www/html/lib/Cake/Console/Templates/skel/View/Layouts/default.ctp(13): View->__get('Html')
+#7 /var/www/html/lib/Cake/View/View.php(971): include('/var/www/html/l...')
+#8 /var/www/html/lib/Cake/View/View.php(933): View->_evaluate('/var/www/html/l...', Array)
+#9 /var/www/html/lib/Cake/View/View.php(546): View->_render('/var/www/html/l...')
+#10 /var/www/html/lib/Cake/View/View.php(481): View->renderLayout('<h2>Missing Con...', 'default')
+#11 /var/www/html/lib/Cake/Controller/Controller.php in [/var/www/html/lib/Cake/View/Helper/HtmlHelper.php, line 33]
+2025-12-24 13:50:05 Error: [FatalErrorException] Uncaught Error: Class 'AppHelper' not found in /var/www/html/lib/Cake/View/Helper/HtmlHelper.php:33
+Stack trace:
+#0 /var/www/html/lib/Cake/Core/App.php(567): include()
+#1 [internal function]: App::load('HtmlHelper')
+#2 [internal function]: spl_autoload_call('HtmlHelper')
+#3 /var/www/html/lib/Cake/View/HelperCollection.php(130): class_exists('HtmlHelper')
+#4 /var/www/html/lib/Cake/View/HelperCollection.php(63): HelperCollection->load('Html')
+#5 /var/www/html/lib/Cake/View/View.php(858): HelperCollection->__isset('Html')
+#6 /var/www/html/lib/Cake/Console/Templates/skel/View/Layouts/default.ctp(13): View->__get('Html')
+#7 /var/www/html/lib/Cake/View/View.php(971): include('/var/www/html/l...')
+#8 /var/www/html/lib/Cake/View/View.php(933): View->_evaluate('/var/www/html/l...', Array)
+#9 /var/www/html/lib/Cake/View/View.php(546): View->_render('/var/www/html/l...')
+#10 /var/www/html/lib/Cake/View/View.php(481): View->renderLayout('<h2>Missing Con...', 'default')
+#11 /var/www/html/lib/Cake/Controller/Controller.php
+Request URL: /
+Stack Trace:
+#0 /var/www/html/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', '/var/www/html/l...', 33)
+#1 /var/www/html/lib/Cake/Core/App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', '/var/www/html/l...', 33, Array)
+#2 /var/www/html/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2025-12-24 13:50:05 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2025-12-24 13:50:05 Error: Fatal Error (1): Uncaught Error: Class 'AppHelper' not found in /var/www/html/lib/Cake/View/Helper/HtmlHelper.php:33
+Stack trace:
+#0 /var/www/html/lib/Cake/Core/App.php(547): include()
+#1 [internal function]: App::load('HtmlHelper')
+#2 [internal function]: spl_autoload_call('HtmlHelper')
+#3 /var/www/html/lib/Cake/View/HelperCollection.php(130): class_exists('HtmlHelper')
+#4 /var/www/html/lib/Cake/View/HelperCollection.php(63): HelperCollection->load('Html')
+#5 /var/www/html/lib/Cake/View/View.php(858): HelperCollection->__isset('Html')
+#6 /var/www/html/lib/Cake/Console/Templates/skel/View/Layouts/default.ctp(13): View->__get('Html')
+#7 /var/www/html/lib/Cake/View/View.php(971): include('/var/www/html/l...')
+#8 /var/www/html/lib/Cake/View/View.php(933): View->_evaluate('/var/www/html/l...', Array)
+#9 /var/www/html/lib/Cake/View/View.php(546): View->_render('/var/www/html/l...')
+#10 /var/www/html/lib/Cake/View/View.php(481): View->renderLayout('<h2>Missing Con...', 'default')
+#11 /var/www/html/lib/Cake/Controller/Controller.php in [/var/www/html/lib/Cake/View/Helper/HtmlHelper.php, line 33]
+2025-12-24 13:50:05 Error: [FatalErrorException] Uncaught Error: Class 'AppHelper' not found in /var/www/html/lib/Cake/View/Helper/HtmlHelper.php:33
+Stack trace:
+#0 /var/www/html/lib/Cake/Core/App.php(547): include()
+#1 [internal function]: App::load('HtmlHelper')
+#2 [internal function]: spl_autoload_call('HtmlHelper')
+#3 /var/www/html/lib/Cake/View/HelperCollection.php(130): class_exists('HtmlHelper')
+#4 /var/www/html/lib/Cake/View/HelperCollection.php(63): HelperCollection->load('Html')
+#5 /var/www/html/lib/Cake/View/View.php(858): HelperCollection->__isset('Html')
+#6 /var/www/html/lib/Cake/Console/Templates/skel/View/Layouts/default.ctp(13): View->__get('Html')
+#7 /var/www/html/lib/Cake/View/View.php(971): include('/var/www/html/l...')
+#8 /var/www/html/lib/Cake/View/View.php(933): View->_evaluate('/var/www/html/l...', Array)
+#9 /var/www/html/lib/Cake/View/View.php(546): View->_render('/var/www/html/l...')
+#10 /var/www/html/lib/Cake/View/View.php(481): View->renderLayout('<h2>Missing Con...', 'default')
+#11 /var/www/html/lib/Cake/Controller/Controller.php
+Request URL: /favicon.ico
+Stack Trace:
+#0 /var/www/html/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', '/var/www/html/l...', 33)
+#1 /var/www/html/lib/Cake/Core/App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', '/var/www/html/l...', 33, Array)
+#2 /var/www/html/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2025-12-24 13:51:07 Error: [Error] Class 'AppController' not found
+Request URL: /
+Stack Trace:
+#0 /var/www/html/lib/Cake/Core/App.php(567): include()
+#1 [internal function]: App::load('DashboardContro...')
+#2 [internal function]: spl_autoload_call('DashboardContro...')
+#3 /var/www/html/lib/Cake/Routing/Dispatcher.php(266): class_exists('DashboardContro...')
+#4 /var/www/html/lib/Cake/Routing/Dispatcher.php(235): Dispatcher->_loadController(Object(CakeRequest))
+#5 /var/www/html/lib/Cake/Routing/Dispatcher.php(158): Dispatcher->_getController(Object(CakeRequest), Object(CakeResponse))
+#6 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2025-12-24 13:51:07 Error: Fatal Error (1): Uncaught Error: Class 'AppHelper' not found in /var/www/html/lib/Cake/View/Helper/HtmlHelper.php:33
+Stack trace:
+#0 /var/www/html/lib/Cake/Core/App.php(567): include()
+#1 [internal function]: App::load('HtmlHelper')
+#2 [internal function]: spl_autoload_call('HtmlHelper')
+#3 /var/www/html/lib/Cake/View/HelperCollection.php(130): class_exists('HtmlHelper')
+#4 /var/www/html/lib/Cake/View/HelperCollection.php(63): HelperCollection->load('Html')
+#5 /var/www/html/lib/Cake/View/View.php(858): HelperCollection->__isset('Html')
+#6 /var/www/html/lib/Cake/Console/Templates/skel/View/Layouts/default.ctp(13): View->__get('Html')
+#7 /var/www/html/lib/Cake/View/View.php(971): include('/var/www/html/l...')
+#8 /var/www/html/lib/Cake/View/View.php(933): View->_evaluate('/var/www/html/l...', Array)
+#9 /var/www/html/lib/Cake/View/View.php(546): View->_render('/var/www/html/l...')
+#10 /var/www/html/lib/Cake/View/View.php(481): View->renderLayout('<h2>Class &#039...', 'default')
+#11 /var/www/html/lib/Cake/Controller/Controller.php in [/var/www/html/lib/Cake/View/Helper/HtmlHelper.php, line 33]
+2025-12-24 13:51:07 Error: [FatalErrorException] Uncaught Error: Class 'AppHelper' not found in /var/www/html/lib/Cake/View/Helper/HtmlHelper.php:33
+Stack trace:
+#0 /var/www/html/lib/Cake/Core/App.php(567): include()
+#1 [internal function]: App::load('HtmlHelper')
+#2 [internal function]: spl_autoload_call('HtmlHelper')
+#3 /var/www/html/lib/Cake/View/HelperCollection.php(130): class_exists('HtmlHelper')
+#4 /var/www/html/lib/Cake/View/HelperCollection.php(63): HelperCollection->load('Html')
+#5 /var/www/html/lib/Cake/View/View.php(858): HelperCollection->__isset('Html')
+#6 /var/www/html/lib/Cake/Console/Templates/skel/View/Layouts/default.ctp(13): View->__get('Html')
+#7 /var/www/html/lib/Cake/View/View.php(971): include('/var/www/html/l...')
+#8 /var/www/html/lib/Cake/View/View.php(933): View->_evaluate('/var/www/html/l...', Array)
+#9 /var/www/html/lib/Cake/View/View.php(546): View->_render('/var/www/html/l...')
+#10 /var/www/html/lib/Cake/View/View.php(481): View->renderLayout('<h2>Class &#039...', 'default')
+#11 /var/www/html/lib/Cake/Controller/Controller.php
+Request URL: /
+Stack Trace:
+#0 /var/www/html/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', '/var/www/html/l...', 33)
+#1 /var/www/html/lib/Cake/Core/App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', '/var/www/html/l...', 33, Array)
+#2 /var/www/html/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2025-12-24 13:51:07 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2025-12-24 13:51:07 Error: Fatal Error (1): Uncaught Error: Class 'AppHelper' not found in /var/www/html/lib/Cake/View/Helper/HtmlHelper.php:33
+Stack trace:
+#0 /var/www/html/lib/Cake/Core/App.php(547): include()
+#1 [internal function]: App::load('HtmlHelper')
+#2 [internal function]: spl_autoload_call('HtmlHelper')
+#3 /var/www/html/lib/Cake/View/HelperCollection.php(130): class_exists('HtmlHelper')
+#4 /var/www/html/lib/Cake/View/HelperCollection.php(63): HelperCollection->load('Html')
+#5 /var/www/html/lib/Cake/View/View.php(858): HelperCollection->__isset('Html')
+#6 /var/www/html/lib/Cake/Console/Templates/skel/View/Layouts/default.ctp(13): View->__get('Html')
+#7 /var/www/html/lib/Cake/View/View.php(971): include('/var/www/html/l...')
+#8 /var/www/html/lib/Cake/View/View.php(933): View->_evaluate('/var/www/html/l...', Array)
+#9 /var/www/html/lib/Cake/View/View.php(546): View->_render('/var/www/html/l...')
+#10 /var/www/html/lib/Cake/View/View.php(481): View->renderLayout('<h2>Missing Con...', 'default')
+#11 /var/www/html/lib/Cake/Controller/Controller.php in [/var/www/html/lib/Cake/View/Helper/HtmlHelper.php, line 33]
+2025-12-24 13:51:07 Error: [FatalErrorException] Uncaught Error: Class 'AppHelper' not found in /var/www/html/lib/Cake/View/Helper/HtmlHelper.php:33
+Stack trace:
+#0 /var/www/html/lib/Cake/Core/App.php(547): include()
+#1 [internal function]: App::load('HtmlHelper')
+#2 [internal function]: spl_autoload_call('HtmlHelper')
+#3 /var/www/html/lib/Cake/View/HelperCollection.php(130): class_exists('HtmlHelper')
+#4 /var/www/html/lib/Cake/View/HelperCollection.php(63): HelperCollection->load('Html')
+#5 /var/www/html/lib/Cake/View/View.php(858): HelperCollection->__isset('Html')
+#6 /var/www/html/lib/Cake/Console/Templates/skel/View/Layouts/default.ctp(13): View->__get('Html')
+#7 /var/www/html/lib/Cake/View/View.php(971): include('/var/www/html/l...')
+#8 /var/www/html/lib/Cake/View/View.php(933): View->_evaluate('/var/www/html/l...', Array)
+#9 /var/www/html/lib/Cake/View/View.php(546): View->_render('/var/www/html/l...')
+#10 /var/www/html/lib/Cake/View/View.php(481): View->renderLayout('<h2>Missing Con...', 'default')
+#11 /var/www/html/lib/Cake/Controller/Controller.php
+Request URL: /favicon.ico
+Stack Trace:
+#0 /var/www/html/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', '/var/www/html/l...', 33)
+#1 /var/www/html/lib/Cake/Core/App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', '/var/www/html/l...', 33, Array)
+#2 /var/www/html/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2025-12-24 14:01:04 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2025-12-26 10:28:34 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2025-12-26 10:37:03 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2025-12-26 10:49:37 Error: [MissingTableException] Table users for model User was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'users',
+  'class' => 'User',
+  'ds' => 'default',
+)
+Request URL: /users/login
+Stack Trace:
+#0 /var/www/html/lib/Cake/Model/Model.php(3686): Model->setSource('users')
+#1 /var/www/html/lib/Cake/Model/Model.php(1394): Model->getDataSource()
+#2 /var/www/html/lib/Cake/View/Helper/FormHelper.php(215): Model->schema()
+#3 /var/www/html/lib/Cake/View/Helper/FormHelper.php(480): FormHelper->_introspectModel('User', 'fields')
+#4 /var/www/html/app/View/Users/login.ctp(33): FormHelper->create('User', Array)
+#5 /var/www/html/lib/Cake/View/View.php(971): include('/var/www/html/a...')
+#6 /var/www/html/lib/Cake/View/View.php(933): View->_evaluate('/var/www/html/a...', Array)
+#7 /var/www/html/lib/Cake/View/View.php(473): View->_render('/var/www/html/a...')
+#8 /var/www/html/lib/Cake/Controller/Controller.php(968): View->render(NULL, NULL)
+#9 /var/www/html/lib/Cake/Routing/Dispatcher.php(200): Controller->render()
+#10 /var/www/html/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#11 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2025-12-26 10:49:38 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2025-12-26 10:52:50 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2025-12-26 10:55:41 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2025-12-26 10:57:20 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2025-12-26 10:57:32 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2025-12-26 11:05:38 Error: [MissingControllerException] Controller class DashboradController could not be found.
+Exception Attributes: array (
+  'class' => 'DashboradController',
+  'plugin' => NULL,
+)
+Request URL: /Dashborad
+Stack Trace:
+#0 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2025-12-26 11:05:56 Error: [MissingActionException] Action DashboardController::index() could not be found.
+Exception Attributes: array (
+  'controller' => 'DashboardController',
+  'action' => 'index',
+)
+Request URL: /Dashboard
+Stack Trace:
+#0 /var/www/html/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(DashboardController), Object(CakeRequest))
+#2 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2025-12-26 11:06:12 Error: [MissingControllerException] Controller class Metrics.ctpController could not be found.
+Exception Attributes: array (
+  'class' => 'Metrics.ctpController',
+  'plugin' => NULL,
+)
+Request URL: /metrics.ctp
+Stack Trace:
+#0 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2025-12-29 10:21:52 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2025-12-29 10:46:47 Error: [MissingTableException] Table users for model User was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'users',
+  'class' => 'User',
+  'ds' => 'default',
+)
+Request URL: /users/login
+Stack Trace:
+#0 /var/www/html/lib/Cake/Model/Model.php(3686): Model->setSource('users')
+#1 /var/www/html/lib/Cake/Model/Model.php(1394): Model->getDataSource()
+#2 /var/www/html/lib/Cake/View/Helper/FormHelper.php(215): Model->schema()
+#3 /var/www/html/lib/Cake/View/Helper/FormHelper.php(480): FormHelper->_introspectModel('User', 'fields')
+#4 /var/www/html/app/View/Users/login.ctp(33): FormHelper->create('User', Array)
+#5 /var/www/html/lib/Cake/View/View.php(971): include('/var/www/html/a...')
+#6 /var/www/html/lib/Cake/View/View.php(933): View->_evaluate('/var/www/html/a...', Array)
+#7 /var/www/html/lib/Cake/View/View.php(473): View->_render('/var/www/html/a...')
+#8 /var/www/html/lib/Cake/Controller/Controller.php(968): View->render(NULL, NULL)
+#9 /var/www/html/lib/Cake/Routing/Dispatcher.php(200): Controller->render()
+#10 /var/www/html/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#11 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2025-12-29 10:46:48 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2025-12-29 10:47:01 Error: [MissingTableException] Table users for model User was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'users',
+  'class' => 'User',
+  'ds' => 'default',
+)
+Request URL: /users/login
+Stack Trace:
+#0 /var/www/html/lib/Cake/Model/Model.php(3686): Model->setSource('users')
+#1 /var/www/html/lib/Cake/Model/Model.php(1394): Model->getDataSource()
+#2 /var/www/html/lib/Cake/View/Helper/FormHelper.php(215): Model->schema()
+#3 /var/www/html/lib/Cake/View/Helper/FormHelper.php(480): FormHelper->_introspectModel('User', 'fields')
+#4 /var/www/html/app/View/Users/login.ctp(33): FormHelper->create('User', Array)
+#5 /var/www/html/lib/Cake/View/View.php(971): include('/var/www/html/a...')
+#6 /var/www/html/lib/Cake/View/View.php(933): View->_evaluate('/var/www/html/a...', Array)
+#7 /var/www/html/lib/Cake/View/View.php(473): View->_render('/var/www/html/a...')
+#8 /var/www/html/lib/Cake/Controller/Controller.php(968): View->render(NULL, NULL)
+#9 /var/www/html/lib/Cake/Routing/Dispatcher.php(200): Controller->render()
+#10 /var/www/html/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#11 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2025-12-29 11:00:37 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2025-12-29 11:02:05 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2025-12-29 11:02:06 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2025-12-29 11:07:18 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2025-12-29 11:10:55 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2025-12-29 11:14:11 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2025-12-29 11:25:17 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2025-12-29 11:43:59 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2025-12-29 11:44:05 Error: [MissingControllerException] Controller class CommissionsController could not be found.
+Exception Attributes: array (
+  'class' => 'CommissionsController',
+  'plugin' => NULL,
+)
+Request URL: /commissions
+Stack Trace:
+#0 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2025-12-29 11:44:07 Error: [MissingControllerException] Controller class SettingsController could not be found.
+Exception Attributes: array (
+  'class' => 'SettingsController',
+  'plugin' => NULL,
+)
+Request URL: /settings
+Stack Trace:
+#0 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2025-12-29 11:50:56 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2025-12-29 11:50:58 Error: [MissingActionException] Action DashboardController::add() could not be found.
+Exception Attributes: array (
+  'controller' => 'DashboardController',
+  'action' => 'add',
+)
+Request URL: /dashboard/add
+Stack Trace:
+#0 /var/www/html/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(DashboardController), Object(CakeRequest))
+#2 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2025-12-29 11:51:02 Error: [MissingActionException] Action DashboardController::edit() could not be found.
+Exception Attributes: array (
+  'controller' => 'DashboardController',
+  'action' => 'edit',
+)
+Request URL: /dashboard/edit/1
+Stack Trace:
+#0 /var/www/html/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(DashboardController), Object(CakeRequest))
+#2 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2025-12-29 11:52:49 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2025-12-29 11:52:51 Error: [MissingViewException] View file "Commissions/index.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Commissions/index.ctp',
+)
+Request URL: /commissions
+Stack Trace:
+#0 /var/www/html/lib/Cake/View/View.php(470): View->_getViewFileName('Commissions/ind...')
+#1 /var/www/html/lib/Cake/Controller/Controller.php(968): View->render(NULL, NULL)
+#2 /var/www/html/lib/Cake/Routing/Dispatcher.php(200): Controller->render()
+#3 /var/www/html/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(CommissionsController), Object(CakeRequest))
+#4 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2025-12-29 11:52:53 Error: [MissingViewException] View file "Commissions/index.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Commissions/index.ctp',
+)
+Request URL: /commissions
+Stack Trace:
+#0 /var/www/html/lib/Cake/View/View.php(470): View->_getViewFileName('Commissions/ind...')
+#1 /var/www/html/lib/Cake/Controller/Controller.php(968): View->render(NULL, NULL)
+#2 /var/www/html/lib/Cake/Routing/Dispatcher.php(200): Controller->render()
+#3 /var/www/html/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(CommissionsController), Object(CakeRequest))
+#4 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2025-12-29 11:52:54 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2025-12-29 11:56:42 Error: [MissingViewException] View file "Commissions/index.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Commissions/index.ctp',
+)
+Request URL: /commissions
+Stack Trace:
+#0 /var/www/html/lib/Cake/View/View.php(470): View->_getViewFileName('Commissions/ind...')
+#1 /var/www/html/lib/Cake/Controller/Controller.php(968): View->render(NULL, NULL)
+#2 /var/www/html/lib/Cake/Routing/Dispatcher.php(200): Controller->render()
+#3 /var/www/html/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(CommissionsController), Object(CakeRequest))
+#4 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2025-12-29 12:19:15 Error: [MissingViewException] View file "Commissions/index.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Commissions/index.ctp',
+)
+Request URL: /commissions
+Stack Trace:
+#0 /var/www/html/lib/Cake/View/View.php(470): View->_getViewFileName('Commissions/ind...')
+#1 /var/www/html/lib/Cake/Controller/Controller.php(968): View->render(NULL, NULL)
+#2 /var/www/html/lib/Cake/Routing/Dispatcher.php(200): Controller->render()
+#3 /var/www/html/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(CommissionsController), Object(CakeRequest))
+#4 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2025-12-29 12:19:52 Error: [MissingViewException] View file "Commissions/index.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Commissions/index.ctp',
+)
+Request URL: /commissions
+Stack Trace:
+#0 /var/www/html/lib/Cake/View/View.php(470): View->_getViewFileName('Commissions/ind...')
+#1 /var/www/html/lib/Cake/Controller/Controller.php(968): View->render(NULL, NULL)
+#2 /var/www/html/lib/Cake/Routing/Dispatcher.php(200): Controller->render()
+#3 /var/www/html/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(CommissionsController), Object(CakeRequest))
+#4 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2025-12-29 12:22:20 Error: [MissingViewException] View file "Commissions/index.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Commissions/index.ctp',
+)
+Request URL: /commissions
+Stack Trace:
+#0 /var/www/html/lib/Cake/View/View.php(470): View->_getViewFileName('Commissions/ind...')
+#1 /var/www/html/lib/Cake/Controller/Controller.php(968): View->render(NULL, NULL)
+#2 /var/www/html/lib/Cake/Routing/Dispatcher.php(200): Controller->render()
+#3 /var/www/html/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(CommissionsController), Object(CakeRequest))
+#4 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2025-12-29 12:22:20 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2025-12-29 12:40:24 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2025-12-29 12:40:57 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2025-12-29 12:40:59 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2025-12-29 12:50:11 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 /var/www/html/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

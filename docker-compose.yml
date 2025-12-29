@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  web:
+    # Usa o Dockerfile atual para instalar as dependências do Postgres
+    build: .
+    container_name: cakephp_app
+    ports:
+      - "8095:80"
+    volumes:
+      - .:/var/www/html
+    # Comando para dar permissão na pasta temporária e iniciar o Apache
+    command: bash -c "chown -R www-data:www-data /var/www/html/app/tmp && apache2-foreground"
+    depends_on:
+      - db
+    links:
+      - db
+
+  db:
+    image: postgres:13
+    container_name: cakephp_db
+    ports:
+      - "5438:5432"
+    environment:
+      POSTGRES_DB: analytics_db
+      POSTGRES_USER: cake_user
+      POSTGRES_PASSWORD: 12345
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  # Interface visual para o Postgres (Substituto do phpMyAdmin)
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: cakephp_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "5050:80"
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
